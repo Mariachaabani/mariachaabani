@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Tâches</title>
+</head>
+<body>
+    <h1>Liste des tâches</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom de la tâche</th>
+                <th>Description</th>
+                <th>Date d échéance</th>
+                <th>Priorité</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task[0] }}</td>
+                <td>{{ task[1] }}</td>
+                <td>{{ task[2] }}</td>
+                <td>{{ task[3] }}</td>
+                <td>{{ task[4] }}</td>
+                <td>
+                    <a href="{{ url_for('edit_task', task_id=task[0]) }}">Modifier</a> |
+                    <a href="{{ url_for('delete_task', task_id=task[0]) }}">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('add_task') }}">Ajouter une nouvelle tâche</a>
+</body>
+</html>

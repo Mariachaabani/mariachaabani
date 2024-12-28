@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier une Tâche</title>
+</head>
+<body>
+    <h1>Modifier la Tâche</h1>
+    <form method="POST">
+        <label>Nom de la Tâche:</label>
+        <input type="text" name="name" value="{{ task.name }}" required>
+        <br>
+        <label>Description:</label>
+        <textarea name="description" required>{{ task.description }}</textarea>
+        <br>
+        <button type="submit">Mettre à jour</button>
+    </form>
+    <a href="/">Retour à la liste des tâches</a>
+</body>
+</html>
